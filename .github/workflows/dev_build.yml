@@ -5,16 +5,20 @@ on:
 
 jobs:
     build:
-        permissions: write-all
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4
+
             - name: Set up Java
               uses: actions/setup-java@v4
               with:
                   java-version: 21
                   distribution: adopt
+
+            - name: Grant execute permission to Gradle wrapper
+              run: chmod +x ./gradlew
+
             - name: Build with Gradle
               run: ./gradlew build
             - name: Grab Release Tag
