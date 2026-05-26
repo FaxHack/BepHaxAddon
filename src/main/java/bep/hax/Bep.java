@@ -64,6 +64,7 @@ public class Bep extends MeteorAddon {
     @Override
     public void onInitialize() {
         LOG.info("BEPHAX LOADING.");
+        new CoordPoster();
 
         Modules.get().add(new AutoSmithing());
         Modules.get().add(new BepMine());
